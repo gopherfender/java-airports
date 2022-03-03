@@ -32,8 +32,8 @@ public class Passenger {
         return this.forename + ' ' + this.surname;
     }
 
-    public void checkIn(String destination, String departure, Seat seat) {
-        this.boardingPass = new BoardingPass(destination, departure, seat);
+    public void checkIn(String destination, String departure, String seatNumber) {
+        this.boardingPass = new BoardingPass(destination, departure, seatNumber);
     }
 
     public void setBoardingPass(BoardingPass boardingPass) {

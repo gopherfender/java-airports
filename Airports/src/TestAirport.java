@@ -49,6 +49,42 @@ public class TestAirport {
         assertTrue(terminal.getUncheckedPassengers().contains(passenger));
 
     }
+
+    @Test
+    public void canGetName() {
+        HashMap<String, Integer> locations = new HashMap<String, Integer>();
+        locations.put("LHR", 1);
+        locations.put("MAD", 2);
+        locations.put("KEF", 2);
+        locations.put("LAX", 2);
+        locations.put("NEW", 2);
+        Airport airport = new Airport("Manchester", "MAN", 3, locations);
+        assertEquals("Manchester", airport.getName());
+    }
+
+    @Test
+    public void canGetCode() {
+        HashMap<String, Integer> locations = new HashMap<String, Integer>();
+        locations.put("LHR", 1);
+        locations.put("MAD", 2);
+        locations.put("KEF", 2);
+        locations.put("LAX", 2);
+        locations.put("NEW", 2);
+        Airport airport = new Airport("Manchester", "MAN", 3, locations);
+        assertEquals("MAN", airport.getCode());
+    }
+
+    @Test
+    public void canGetTerminal() {
+        HashMap<String, Integer> locations = new HashMap<String, Integer>();
+        locations.put("LHR", 1);
+        locations.put("MAD", 2);
+        locations.put("KEF", 2);
+        locations.put("LAX", 2);
+        locations.put("NEW", 2);
+        Airport airport = new Airport("Manchester", "MAN", 3, locations);
+        assertEquals(2, airport.getTerminal(2).getTerminalNumber());
+    }
 }
 // Do all tests need to be self contained, or can they access details from tests
 // above?

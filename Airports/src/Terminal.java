@@ -19,7 +19,7 @@ public class Terminal {
         }
     }
 
-    public int getName() {
+    public int getTerminalNumber() {
         return terminalNumber;
     }
 

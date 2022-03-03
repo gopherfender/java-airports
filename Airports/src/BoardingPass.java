@@ -3,16 +3,16 @@ package Airports.src;
 public class BoardingPass {
     private String destination;
     private String departure;
-    private Seat seat;
+    private String seatNumber;
 
-    public BoardingPass(String destination, String departure, Seat seat) {
+    public BoardingPass(String destination, String departure, String seatNumber) {
         this.destination = destination;
         this.departure = departure;
-        this.seat = seat;
+        this.seatNumber = seatNumber;
     }
 
-    public Seat getSeat() {
-        return this.seat;
+    public String getSeatNumber() {
+        return this.seatNumber;
     }
 
 }

@@ -2,40 +2,61 @@
     class Airport {
         String name
         String code
-        ArrayList<Terminal> Terminals
+        HashMap Terminals
         HashMap departureMap
         getName()
         getCode()
-        getTerminals()
+        getTerminal()
+        getAllTerminals()
         getDepartureMap()
         createPassenger()
         getCorrectTerminal()   
         sendPassengerToTerminal()
+        createPlane()
         }
 
         class Terminal {
         int terminalNumber
-        ArrayList<Gates> gates
+        HashMap<Interger, Gate> gates
         ArrayList<Passenger> uncheckedPassengers
-        getName()
-        getGates()
-        checkInPassenger()
+        getTerminalNumber()
+        getAllGates()
+        getGate()
+        addUncheckedPassenger()
+        getUncheckedPassengers()
+        sendPassengersToGate()
+        sendBaggageToPlane()
     }
-          class Gate {
+        class Gate {
         int gateNumber
-        boardPassengers()
+        ArrayList<Passenger> Passengers
+        Plane plane
+        addPassenger()
+        setPlane()
+        getPlane()
     }  
         class Plane {
         String planeType
         String registration
-        ArrayList<Seat> seatList 
-        Arrival()
-        Departure()
+        HashMap<String, Seat> seatList 
+        ArrayList<Bag> holdBaggage
+        String[] seatColumns
+        getBaggage()
+        addBag()
+        getSeats()
+        getSeat()
+        boardPassenger()
+        Arrival() - TBC
+        Departure() - TBC
     }
         class Seat {
         char seatColumn
         int seatRow
         String seatType
+        Passenger Passenger
+        seatPassenger()
+        getSeatNumber()
+        getPassenger()
     }
     class Passenger {
         String Forename
@@ -44,8 +65,11 @@
         int passportNumber
         String destination
         Boardingpass boardingPass
+        addBag()
+        getBags()
         getName()
         checkIn()
+        setBoardingPass()
         getBoardingPass()
         getDestination()
     }
@@ -57,8 +81,8 @@
     class BoardingPass {
         String destination
         String Departure
-        Gate Gate
-        Seat Seat
+        String seatNumber
+        getSeatNumber()
     }
     class CrewMember {
         String name

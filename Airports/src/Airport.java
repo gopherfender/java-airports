@@ -48,8 +48,8 @@ public class Airport {
         this.terminals.get(getCorrectTerminal(passenger)).addUncheckedPassenger(passenger);
     }
 
-    public void createPlane(String planeType, String registration, Gate gate) {
-        Plane newPlane = new Plane(planeType, registration);
+    public void createPlane(String planeType, String registration, int rows, int columns, Gate gate) {
+        Plane newPlane = new Plane(planeType, registration, rows, columns);
         gate.setPlane(newPlane);
 
     }

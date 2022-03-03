@@ -15,8 +15,7 @@ public class TestsPassenger {
     @Test
     public void aPassengerCanHaveABoardingPass() {
         Passenger passenger = new Passenger("Bob", "Smith", 8008, "KEF");
-        Seat seat = new Seat("A", 1);
-        passenger.checkIn("Keflavik", "Manchester", seat);
+        passenger.checkIn("Keflavik", "Manchester", "A1");
         BoardingPass pass = passenger.getBoardingPass();
         assertSame(passenger.getBoardingPass(), pass);
     }
