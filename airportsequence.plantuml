@@ -1,0 +1,23 @@
+@startuml
+
+Actor Passenger as Passenger
+Participant "Departure Airport" as DepAirport
+Participant Terminal as Terminal
+Participant Gate as Gate
+Participant Plane as Plane
+Participant "Arrival Airport" as ArrAirport
+Participant "Arrival Gate" as ArrGate
+Participant "Arrival Terminal" as arrTerminal
+
+
+
+Passenger -> DepAirport
+DepAirport -> Terminal : sendPassengerToTerminal()
+Terminal -> Plane : sendBagsToPlane()
+Terminal -> Gate : sendToGate()
+Gate -> Plane : BoardPassenger()
+Plane -> ArrAirport : Flight()
+ArrAirport ->  Plane : assignGate()
+Plane -> ArrGate : disembark()
+Passenger -> arrTerminal : collectBags()
+

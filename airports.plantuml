@@ -1,0 +1,86 @@
+@startuml Airport
+    class Airport {
+        String name
+        String code
+        ArrayList<Terminal> Terminals
+        HashMap departureMap
+        getName()
+        getCode()
+        getTerminals()
+        getDepartureMap()
+        createPassenger()
+        getCorrectTerminal()   
+        sendPassengerToTerminal()
+        }
+
+        class Terminal {
+        int terminalNumber
+        ArrayList<Gates> gates
+        ArrayList<Passenger> uncheckedPassengers
+        getName()
+        getGates()
+        checkInPassenger()
+    }
+          class Gate {
+        int gateNumber
+        boardPassengers()
+    }  
+        class Plane {
+        String planeType
+        String registration
+        ArrayList<Seat> seatList 
+        Arrival()
+        Departure()
+    }
+        class Seat {
+        char seatColumn
+        int seatRow
+        String seatType
+    }
+    class Passenger {
+        String Forename
+        String Surname
+        ArrayList<Bag> baggage 
+        int passportNumber
+        String destination
+        Boardingpass boardingPass
+        getName()
+        checkIn()
+        getBoardingPass()
+        getDestination()
+    }
+    class Bag {
+        int weight
+        string bagId
+        getWeight()
+    }
+    class BoardingPass {
+        String destination
+        String Departure
+        Gate Gate
+        Seat Seat
+    }
+    class CrewMember {
+        String name
+        String position
+        int staffNumber
+    }
+
+
+
+
+
+
+    Airport --> Passenger : createPassenger()
+    Terminal *-- Airport : sendPassengerToTerminal()
+    Gate *-- Terminal  : sendPassengerToGate()
+    Passenger o-- Bag
+    CrewMember o-- Bag
+    Seat *-- Plane
+    CrewMember -- Plane
+    Plane -- Terminal : sendBaggageToPlane()
+    Plane -- Gate : boardPassengers()
+    Passenger *-- BoardingPass
+
+
+    @enduml

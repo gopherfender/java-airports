@@ -1,0 +1,6 @@
+{
+  "java.project.referencedLibraries": [
+    "lib/**/*.jar",
+    "Airports/lib/junit5-0.5.0.jar"
+  ]
+}
