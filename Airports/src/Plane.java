@@ -19,9 +19,19 @@ public class Plane {
 
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                seatList.put(i + seatColumns[j], new Seat(i, seatColumns[j]));
+                seatList.put((i + 1) + seatColumns[j], new Seat((i + 1), seatColumns[j]));
             }
         }
+    }
+
+    public String getNextFreeSeat() {
+        String seatNumber = "";
+        for (Seat i : seatList.values()) {
+            if (i.getPassenger() == null) {
+                seatNumber = i.getSeatNumber();
+            }
+        }
+        return seatNumber;
     }
 
     public ArrayList<Bag> getBaggage() {
@@ -40,12 +50,14 @@ public class Plane {
         return seatList.get(seatNumber);
     }
 
-    public void boardPassenger(Passenger passenger) {
+    public boolean boardPassenger(Passenger passenger) {
         try {
             Seat seat = seatList.get(passenger.getBoardingPass().getSeatNumber());
             seat.seatPassenger(passenger);
+            return true;
         } catch (Exception err) {
             System.out.println("Seat occupied");
+            return false;
         }
 
     }

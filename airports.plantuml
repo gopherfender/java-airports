@@ -9,7 +9,6 @@
         getTerminal()
         getAllTerminals()
         getDepartureMap()
-        createPassenger()
         getCorrectTerminal()   
         sendPassengerToTerminal()
         createPlane()

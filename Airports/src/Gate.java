@@ -23,4 +23,13 @@ public class Gate {
     public Plane getPlane() {
         return this.plane;
     }
+
+    public void sendPassengersToPlane() {
+        passengers.forEach(passenger -> {
+            if (plane.boardPassenger(passenger)) {
+                passenger.setBoarded(true);
+            }
+        });
+        passengers.removeIf(passenger -> passenger.getBoarded());
+    }
 }

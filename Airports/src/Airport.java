@@ -15,7 +15,7 @@ public class Airport {
         this.terminals = new HashMap<Integer, Terminal>();
 
         for (int i = 0; i < terminalCount; i++) {
-            Terminal terminal = new Terminal(i + 1, 10);
+            Terminal terminal = new Terminal(this, i + 1, 10);
             this.terminals.put(i + 1, terminal);
         }
     }
@@ -48,9 +48,10 @@ public class Airport {
         this.terminals.get(getCorrectTerminal(passenger)).addUncheckedPassenger(passenger);
     }
 
-    public void createPlane(String planeType, String registration, int rows, int columns, Gate gate) {
+    public void createPlane(String planeType, String registration, int rows, int columns, int terminalNumber,
+            int gateNumber) {
         Plane newPlane = new Plane(planeType, registration, rows, columns);
-        gate.setPlane(newPlane);
+        this.getTerminal(terminalNumber).getGate(gateNumber).setPlane(newPlane);
 
     }
 }

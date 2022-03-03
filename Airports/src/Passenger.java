@@ -9,6 +9,7 @@ public class Passenger {
     private ArrayList<Bag> baggage;
     private String destination;
     private BoardingPass boardingPass;
+    private boolean boarded = false;
 
     public Passenger(String forename, String surname, int passportNumber, String destination) {
         this.surname = surname;
@@ -18,13 +19,19 @@ public class Passenger {
         this.baggage = new ArrayList<Bag>();
     }
 
+    public boolean getBoarded() {
+        return this.boarded;
+    }
+
+    public void setBoarded(boolean bool) {
+        this.boarded = bool;
+    }
+
     public void addBag(int weight, String bagId) {
         this.baggage.add(new Bag(weight, bagId));
     }
 
     public ArrayList<Bag> getBags() {
-        // ArrayList<Bag> bags = this.baggage;
-        // this.baggage.clear();
         return this.baggage;
     }
 
